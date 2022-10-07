@@ -1,0 +1,1 @@
+﻿public record ProductRequest(string code, string name, string description, int categoryId, List<string> tags);
