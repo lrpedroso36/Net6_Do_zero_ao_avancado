@@ -1,5 +1,4 @@
-﻿using IWantApp.Domain.Products;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace IWantApp.Endpoints.Categories;
 

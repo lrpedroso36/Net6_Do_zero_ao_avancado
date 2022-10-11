@@ -10,7 +10,7 @@ public class CategoryGetAll
     {
         var categories = context.Categories.ToList();
 
-        if(categories == null || !categories.Any())
+        if (categories == null || !categories.Any())
         {
             return Results.NotFound();
         }

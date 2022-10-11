@@ -1,4 +1,5 @@
-﻿using IWantApp.Domain.Products;
+﻿using Flunt.Notifications;
+using IWantApp.Domain.Products;
 using Microsoft.EntityFrameworkCore;
 
 public class ApplicationDbContext : DbContext
@@ -10,8 +11,10 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
-    protected override void OnModelCreating(ModelBuilder builder) 
+    protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.Ignore<Notification>();
+
         builder.Entity<Product>()
                .Property(x => x.Name).IsRequired();
 

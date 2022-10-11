@@ -10,18 +10,16 @@ public class CategoryPost
 
     public static IResult Action(CategoryRequest categoryRequest, ApplicationDbContext context)
     {
-        var category = new Category
+        var category = new Category(categoryRequest.Name, "USUARIO.INCLUSAO", "USUARIO.INCLUSAO");
+
+        if (!category.IsValid)
         {
-            Name = categoryRequest.Name,
-            CreatedBy = "USUARIO.INCLUSAO",
-            CreatedOn = DateTime.Now,
-            EditedBy = "USUARIO.INCLUSAO",
-            EditedOn = DateTime.Now
-        };
+            return Results.ValidationProblem(category.Notifications.ConvertToProblemaDetails());
+        }
 
         context.Categories.Add(category);
         context.SaveChanges();
-        
+
         return Results.Created($"/categories/{category.Id}", category.Id);
     }
 }
