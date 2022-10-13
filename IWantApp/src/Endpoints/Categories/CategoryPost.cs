@@ -14,7 +14,7 @@ public class CategoryPost
 
         if (!category.IsValid)
         {
-            return Results.ValidationProblem(category.Notifications.ConvertToProblemaDetails());
+            return Results.ValidationProblem(category.Notifications.ConvertToProblemDetails());
         }
 
         context.Categories.Add(category);

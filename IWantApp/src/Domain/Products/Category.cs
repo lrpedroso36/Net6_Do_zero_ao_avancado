@@ -1,6 +1,4 @@
 ﻿using Flunt.Validations;
-using IWantApp.Endpoints.Categories;
-using System.Xml.Linq;
 
 namespace IWantApp.Domain.Products;
 
